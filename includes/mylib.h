@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef MYLIB_H
+# define MYLIB_H
 
 # include <stdbool.h>
 # include <stdio.h>

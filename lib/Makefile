@@ -6,18 +6,18 @@
 #    By: rrouille <rrouille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 17:27:55 by rrouille          #+#    #+#              #
-#    Updated: 2022/11/09 19:32:38 by rrouille         ###   ########.fr        #
+#    Updated: 2022/11/12 18:53:01 by rrouille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Folders
 SRCDIR		= srcs
-OBJDIR		= objs
-HDRDIR		= includes
+OBJDIR		= ../objs
+HDRDIR		= ../includes
 
 # Files
-SRCS		= $(shell find ${SRCDIR} -name '*.c')
-OBJS		= ${SRCS:.c=.o}
+SRCS		= ${shell find ${SRCDIR} -name '*.c'}
+OBJS		= ${SRCS:${SRCDIR}%.c=${OBJDIR}%.o}
 NAME		= libft.a
 
 # Compilation
@@ -43,20 +43,34 @@ MAGENTA		= \033[0;95m
 CYAN		= \033[0;96m
 WHITE		= \033[0;97m
 
+#Sources
+FTISDIR		= is
+FTMEMDIR	= mem
+FTPUTDIR	= put
+FTTODIR		= to
+FTSTRDIR	= str
+FTLSTDIR	= lst
+FTMATHDIR	= math
+
 # First rule
+all:		${NAME}
+
 ${NAME}:	${OBJS}
 			@${AR} ${NAME} ${OBJS}
-			@${RM} ${OBJDIR}
-			@${MKDIR} ${OBJDIR}
-			@${MV} $(shell find ${SRCDIR} -name '*.o') ${OBJDIR}
-			@echo "${GREEN}Library compiled!${DEF_COLOR}"
+			@ranlib ${NAME}
+			@echo "${GREEN}Libft compiled!${DEFCOLOR}"
 
-# Compilation rule
-.c.o :
-			@echo "${YELLOW}Creating $?.${DEF_COLOR}"
-			@${CC} ${CFLAGS} -c -o $@ $?
-
-all:		${NAME}
+${OBJDIR}%.o : ${SRCDIR}%.c
+			@mkdir -p ${OBJDIR}
+			@mkdir -p ${OBJDIR}/${FTISDIR}
+			@mkdir -p ${OBJDIR}/${FTMEMDIR}
+			@mkdir -p ${OBJDIR}/${FTPUTDIR}
+			@mkdir -p ${OBJDIR}/${FTTODIR}
+			@mkdir -p ${OBJDIR}/${FTSTRDIR}
+			@mkdir -p ${OBJDIR}/${FTLSTDIR}
+			@mkdir -p ${OBJDIR}/${FTMATHDIR}
+			@echo "${YELLOW}Compiling: $< ${DEFCOLOR}"
+			@${CC} ${CFLAGS} -I ${HDRDIR} -c $< -o $@
 
 # Norminette
 norm:
@@ -65,13 +79,13 @@ norm:
 # Cleaning
 clean:
 			@${RM} ${OBJDIR}
-			@${RM} $(shell find ${SRCDIR} -name '*.o')
-			@echo "${CYAN}Object files cleaned!${DEF_COLOR}"
+			@echo "${BLUE}Library objects files cleaned!${DEFCOLOR}"
 
 fclean:		clean
-			@${RM} ${NAME} 
-			@echo "${CYAN}Library cleaned!${DEF_COLOR}"
+			@${RM} ${NAME}
+			@echo "${CYAN}Library executable files cleaned!${DEFCOLOR}"
 
-re: 		fclean all
+re:			fclean all
+			@echo "${GREEN}Cleaned and rebuilt the library correctly !${DEFCOLOR}"
 
-.PHONY:		all clean fclean re .c.o
+.PHONY:		all clean fclean re norm

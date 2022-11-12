@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "mylib.h"
 
 char	*ft_substr(const char *s1, unsigned int start, size_t len)
 {

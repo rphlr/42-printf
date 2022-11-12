@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "mylib.h"
 
 static int	ft_intlen(int n)
 {

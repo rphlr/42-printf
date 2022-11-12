@@ -6,7 +6,7 @@
 #    By: rrouille <rrouille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 17:27:55 by rrouille          #+#    #+#              #
-#    Updated: 2022/11/09 19:34:58 by rrouille         ###   ########.fr        #
+#    Updated: 2022/11/12 19:06:53 by rrouille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,9 @@ OBJDIR		= objs
 HDRDIR		= includes
 
 # Files
-SRCS		= $(shell find ${SRCDIR} -name '*.c')
-OBJS		= ${SRCS:.c=.o}
+SRCS		= ${shell find ${SRCDIR} -name '*.c'}
+#OBJS		= ${addprefix ${OBJDIR}, ${addsuffix .o, ${SRCS}}}
+OBJS		= ${SRCS:${SRCDIR}%.c=${OBJDIR}%.o}
 NAME		= libftprintf.a
 
 # Compilation
@@ -44,20 +45,21 @@ MAGENTA		= \033[0;95m
 CYAN		= \033[0;96m
 WHITE		= \033[0;97m
 
+all:		${NAME}
+
 # First rule
 ${NAME}:	${OBJS}
-			@make -C ${LIBDIR}
 			@cp ${LIBDIR}/libft.a .
 			@mv libft.a ${NAME}
 			@${AR} ${NAME} ${OBJS}
-			@echo "${GREEN}ft_printf compiled!${DEF_COLOR}"
+			@echo "${GREEN}ft_printf compiled!${DEFCOLOR}"
 
 # Compilation rule
-.c.o:
-			@echo "${YELLOW}Creating $?.${DEF_COLOR}"
-			@${CC} ${CFLAGS} ${HDRDIR} -c -o $@ $?
-
-all:		${NAME}
+${OBJDIR}/%.o: ${SRCDIR}/%.c
+			@make -C ${LIBDIR}
+			@${MKDIR} -p ${OBJDIR}
+			@echo "${YELLOW}Compiling: $< ${DEFCOLOR}"
+			@${CC} ${CFLAGS} -I ${HDRDIR} -c $< -o $@
 
 # Norminette
 norm:
@@ -65,17 +67,17 @@ norm:
 
 # Cleaning
 clean:
-			@${RM} ${OBJDIR}
+			@${RM} -rf ${OBJDIR}
 			@make clean -C ${LIBDIR}
-			@echo "${BLUE}printf object files cleaned!${DEFCOLOR}"
+			@echo "${BLUE}ft_printf object files cleaned!${DEFCOLOR}"
 
 fclean:		clean
-			@${RM} ${NAME}
-			@${RM} ${LIBDIR}/libft.a
-			@echo "${CYAN}printf files cleaned!"
-			@echo "Library cleaned!${DEFCOLOR}"
+			@${RM} -f ${NAME}
+			@${RM} -f ${LIBDIR}/libft.a
+			@echo "${CYAN}ft_printf executable files cleaned!"
+			@echo "${CYAN}libft executable files cleaned!${DEFCOLOR}"
 
-re: 		fclean all
-			@echo "${GREEN}Cleaned and rebuilt everything!${DEFCOLOR}"
+re:			fclean all
+			@echo "${GREEN}Cleaned and rebuilt everything for ft_printf!${DEFCOLOR}"
 
-.PHONY:		all clean fclean re .c.o
+.PHONY:		all clean fclean re norm
