@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tester.c                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrouille <rrouille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 15:53:47 by rrouille          #+#    #+#             */
-/*   Updated: 2022/11/09 19:23:46 by rrouille         ###   ########.fr       */
+/*   Created: 2022/11/09 15:35:04 by rrouille          #+#    #+#             */
+/*   Updated: 2022/11/15 11:27:42 by rrouille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	main(void)
-{
-	int		test1;
-	char	test2;
+# include <stdarg.h>
+# include <unistd.h>
 
-	test1 = 21;
-	test2 = "Bonjour !";
-	printf("%i\n%s", test1, test2);
-	ft_printf("%i\n%s", test1, test2);
-}
+int		ft_printf(const char *str, ...);
+void	ft_printstr(char *numero);
+void	ft_putunsigned(unsigned int num);
+void	ft_puthexa(unsigned int num, const char conversion);
+void	ft_printnbr(int num);
+void	ft_conversion(va_list args, const char conversion);
+
+#endif
