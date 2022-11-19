@@ -11,7 +11,7 @@
 
 ---
 
-## 💡 About the project
+# 💡 About the project
 
 > _This project is clear and efficient. You have to recode printf. You will then be able to reuse it in your future projects. This project is mainly about variable size arguments._
 
@@ -19,29 +19,29 @@
 
 ---
 
-## 🛠️ Usage
+# 🛠️ Usage
 
-### Requirements
+## Requirements
 
 The function is written in C language and thus needs the **`gcc` compiler** and some standard **C libraries** to run.
 
-### Instructions
+## Instructions
 
 **1. Compiling the library**
 
-To compile, run :
+### To compile, run :
 
 ```shell
 $ make
 ```
 
-To try it, run :
+### To try it, run :
 
 ```shell
 $ make test
 ```
 
-If you are workin on a school mac, you can run this command to test further (according that [francinette](https://github.com/xicodomingues/francinette) is installed on the computer).
+### If you are workin on a school mac, you can run this command to test further (according that [francinette](https://github.com/xicodomingues/francinette) is installed on the computer).
 
 ```shell
 $ make moretest
@@ -52,9 +52,9 @@ Or
 ```shell
 $ make mt
 ```
-	mt for More Test.
+(mt for More Test.)
 
-To clean, run :
+### To clean, run :
 
 ```shell
 $ make fclean
