@@ -62,12 +62,21 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
+char	*ft_unsigned_itoa(unsigned int num);
 
 // put
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
 void	ft_putendl_fd(char *str, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+// ptr
+int		print_ptr(unsigned long long ptr);
+
+// hex
+int		print_hex(unsigned int num, const char conversion);
+
+// math
 
 // lst
 t_list	*ft_lstnew(void *content);
