@@ -6,7 +6,7 @@
 #    By: rrouille <rrouille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 17:27:55 by rrouille          #+#    #+#              #
-#    Updated: 2022/11/19 16:10:07 by rrouille         ###   ########.fr        #
+#    Updated: 2022/11/19 16:57:21 by rrouille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,15 +90,18 @@ test:
 			@echo "${CYAN}Running the basic tests for the printf project..."
 			@echo "For more test try \"make moretest\" or \"make mt\"..."
 			@echo "...${DEFCOLOR}"
+			@mv ${SRCDIR}/tester.c.test ${SRCDIR}/tester.c
 			@make basics-tests
 			@echo "${CYAN}Cleaning testing files...${DEFCOLOR}"
 			@${RM} ${TESTER}
+			@mv ${SRCDIR}/tester.c ${SRCDIR}/tester.c.test
 			@echo "${GREEN}Testing files cleaned !${DEFCOLOR}"
 
 moretest:
 			@echo "${CYAN}Running the tests for the printf project..."
 			@echo "...${DEFCOLOR}"
 			@make
+			@mv ${SRCDIR}/tester.c.test ${SRCDIR}/tester.c
 			@make basics-tests
 			@echo "${RED}Running francinette...${DEFCOLOR}"
 			@echo ""
@@ -108,6 +111,7 @@ moretest:
 			@echo "${CYAN}Cleaning testing files...${DEFCOLOR}"
 			@${RM} ${TESTER}
 			@make fclean
+			@mv ${SRCDIR}/tester.c ${SRCDIR}/tester.c.test
 			@echo "${GREEN}Testing files cleaned !${DEFCOLOR}"
 
 mt:			moretest
