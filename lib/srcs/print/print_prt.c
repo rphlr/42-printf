@@ -6,7 +6,7 @@
 /*   By: rrouille <rrouille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 12:59:51 by rrouille          #+#    #+#             */
-/*   Updated: 2022/11/19 13:08:26 by rrouille         ###   ########.fr       */
+/*   Updated: 2022/11/19 16:42:51 by rrouille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	ptr_len(uintptr_t num)
 	len = 0;
 	while (num != 0)
 	{
+		num /= 16;
 		len++;
-		num = num / 16;
 	}
 	return (len);
 }
