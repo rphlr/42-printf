@@ -77,6 +77,12 @@ int		print_ptr(unsigned long long ptr);
 int		print_hex(unsigned int num, const char conversion);
 
 // math
+int		ft_fibonacci(int index);
+int		ft_find_next_prime(int nb);
+int		ft_is_prime(int nb);
+int		ft_factorial(int nb);
+int		ft_power(int nb, int power);
+int		ft_sqrt(int nb);
 
 // lst
 t_list	*ft_lstnew(void *content);
