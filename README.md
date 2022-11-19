@@ -15,7 +15,7 @@
 
 > _This project is clear and efficient. You have to recode printf. You will then be able to reuse it in your future projects. This project is mainly about variable size arguments._
 
-	This project is not finished and working for now !
+	This project is finished and I've got 100% with outstanding notes ! 😁
 
 ---
 
@@ -34,6 +34,25 @@ To compile, run :
 ```shell
 $ make
 ```
+
+To try it, run :
+
+```shell
+$ make test
+```
+
+If you are workin on a school mac, you can run this command to test further (according that [francinette](https://github.com/xicodomingues/francinette) is installed on the computer).
+
+```shell
+$ make moretest
+```
+
+Or
+
+```shell
+$ make mt
+```
+	mt for More Test.
 
 To clean, run :
 

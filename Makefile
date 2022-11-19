@@ -6,7 +6,7 @@
 #    By: rrouille <rrouille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 17:27:55 by rrouille          #+#    #+#              #
-#    Updated: 2022/11/19 18:32:21 by rrouille         ###   ########.fr        #
+#    Updated: 2022/11/19 18:46:57 by rrouille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,10 @@ OBJDIR		= objs
 HDRDIR		= includes
 
 # Files
-SRCS		= ${shell find ${SRCDIR} ! -name "tester.c" -name '*.c'}
+SRCS		= ${shell find ${SRCDIR} ! -name "exec.c" -name '*.c'}
 OBJS		= ${SRCS:${SRCDIR}%.c=${OBJDIR}%.o}
 NAME		= libftprintf.a
+TESTER		= exec
 
 # Compilation
 CC			= gcc
@@ -63,6 +64,57 @@ ${OBJDIR}/%.o: ${SRCDIR}/%.c
 # Norminette
 norm:
 			@norminette -R CheckForbiddenSourceHeader
+
+basics-tests:
+			@echo "${BLUE}"
+			@${CC} ${CFLAGS} ${SRCDIR}/*.c ${LIBDIR}/${SRCDIR}/*/*.c -I ${HDRDIR} -o ${TESTER}
+			@echo "First test :"
+			@./${TESTER} 0123456789 abcdefghijklmnopqrstuvwxyz
+			@echo ""
+			@echo "------------"
+			@echo "Second test :"
+			@./${TESTER} -2147483648 "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+			@echo ""
+			@echo "------------"
+			@echo "Third test :"
+			@./${TESTER} 2147483647 "@!$#%^&*()_+<> ?:\\\"{}|,./;[]'"
+			@echo ""
+			@echo "------------"
+			@echo "Fourth test :"
+			@./${TESTER} 23846324087324 "\t\n\v\f\r\0"
+			@echo "${DEFCOLOR}"
+			@echo "${YELLOW}Testing done.${DEFCOLOR}"
+			@echo ""
+
+test:
+			@echo "${CYAN}Running the basic tests for the printf project..."
+			@echo "For more test try \"make moretest\" or \"make mt\"..."
+			@echo "...${DEFCOLOR}"
+			@mv ${SRCDIR}/${TESTER}.test ${SRCDIR}/${TESTER}.c
+			@make basics-tests
+			@echo "${CYAN}Cleaning testing files...${DEFCOLOR}"
+			@${RM} ${TESTER}
+			@mv ${SRCDIR}/${TESTER}.c ${SRCDIR}/${TESTER}.test
+			@echo "${GREEN}Testing files cleaned !${DEFCOLOR}"
+
+moretest:
+			@echo "${CYAN}Running the tests for the printf project..."
+			@echo "...${DEFCOLOR}"
+			@make
+			@mv ${SRCDIR}/${TESTER}.test ${SRCDIR}/${TESTER}.c
+			@make basics-tests
+			@echo "${RED}Running francinette...${DEFCOLOR}"
+			@echo ""
+			@/Users/$(USER)/francinette/tester.sh
+			@echo "${YELLOW}Testing done, well done.${DEFCOLOR}"
+			@echo ""
+			@echo "${CYAN}Cleaning testing files...${DEFCOLOR}"
+			@${RM} ${TESTER}
+			@make fclean
+			@mv ${SRCDIR}/${TESTER}.c ${SRCDIR}/${TESTER}.test
+			@echo "${GREEN}Testing files cleaned !${DEFCOLOR}"
+
+mt:			moretest
 
 # Cleaning
 clean:
