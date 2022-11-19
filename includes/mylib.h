@@ -70,11 +70,12 @@ void	ft_putstr_fd(char *str, int fd);
 void	ft_putendl_fd(char *str, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
-// ptr
-int		print_ptr(unsigned long long ptr);
-
-// hex
+// print
 int		print_hex(unsigned int num, const char conversion);
+int		print_nbr(int num);
+int		print_ptr(unsigned long long ptr);
+int		print_str(char *str);
+int		print_unsigned(unsigned int num);
 
 // math
 int		ft_fibonacci(int index);

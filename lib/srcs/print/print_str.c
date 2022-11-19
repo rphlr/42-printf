@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tester.c                                           :+:      :+:    :+:   */
+/*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrouille <rrouille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 15:53:47 by rrouille          #+#    #+#             */
-/*   Updated: 2022/11/19 15:35:30 by rrouille         ###   ########.fr       */
+/*   Created: 2022/11/19 14:44:11 by rrouille          #+#    #+#             */
+/*   Updated: 2022/11/19 14:46:04 by rrouille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <unistd.h>
+#include "mylib.h"
 
-int	main(int argc, char **argv)
+/**
+* @notice	This function prints a string.
+* @param	char_pointer		The string to print.
+* @return	int					The lenght of characters of the printed
+*								string.
+*/
+int	print_str(char *str)
 {
-	int		number;
-	char	*string;
+	int	len;
 
-	if (argc >= 1)
+	len = 0;
+	if (str == NULL)
 	{
-		number = ft_atoi(argv[1]);
-		string = argv[2];
-		printf("printf = \t%i\n", number);
-		ft_printf("my printf = \t%i\n", number);
-		printf("printf = \t%s\n", string);
-		ft_printf("my printf = \t%s\n", string);
+		ft_putstr_fd("(null)", 1);
+		return (6);
 	}
-	return (0);
+	while (str[len])
+		ft_putchar_fd(str[len++], 1);
+	return (len);
 }

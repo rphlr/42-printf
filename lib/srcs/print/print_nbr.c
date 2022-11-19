@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tester.c                                           :+:      :+:    :+:   */
+/*   print_nbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrouille <rrouille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 15:53:47 by rrouille          #+#    #+#             */
-/*   Updated: 2022/11/19 15:35:30 by rrouille         ###   ########.fr       */
+/*   Created: 2022/11/19 14:45:27 by rrouille          #+#    #+#             */
+/*   Updated: 2022/11/19 14:45:56 by rrouille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <unistd.h>
+#include "mylib.h"
 
-int	main(int argc, char **argv)
+/**
+* @notice	This function prints a number.
+* @param	int					The number to print.
+* @return	int					The lenght of characters of the printed
+*								number.
+*/
+int	print_nbr(int num)
 {
-	int		number;
-	char	*string;
+	int		len;
+	char	*numchar;
 
-	if (argc >= 1)
-	{
-		number = ft_atoi(argv[1]);
-		string = argv[2];
-		printf("printf = \t%i\n", number);
-		ft_printf("my printf = \t%i\n", number);
-		printf("printf = \t%s\n", string);
-		ft_printf("my printf = \t%s\n", string);
-	}
-	return (0);
+	len = 0;
+	numchar = ft_itoa(num);
+	len = print_str(numchar);
+	free(numchar);
+	return (len);
 }
