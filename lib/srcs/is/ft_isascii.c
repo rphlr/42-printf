@@ -12,6 +12,11 @@
 
 #include "mylib.h"
 
+/**
+* @notice	This function checks if the value sent to him is a ascii character.
+* @param	int		The value to check.
+* @return	int		Returns 1 if true or 0 if false.
+*/
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)

@@ -12,10 +12,16 @@
 
 #include "mylib.h"
 
+/**
+* @notice	This function adds a value at the begining of a list.
+* @param	t_list	The list.
+* @param	t_list	The value.
+* @return	void	No return value needed.
+*/
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (lst == NULL || new == NULL)
-		return ;
+		;
 	new->next = *lst;
 	*lst = new;
 }

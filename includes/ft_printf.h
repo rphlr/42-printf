@@ -6,7 +6,7 @@
 /*   By: rrouille <rrouille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:35:04 by rrouille          #+#    #+#             */
-/*   Updated: 2022/11/19 12:42:41 by rrouille         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:28:33 by rrouille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-int		ft_printf(const char *str, ...);
+int	ft_printf(const char *str, ...);
 
 #endif
