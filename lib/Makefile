@@ -6,7 +6,7 @@
 #    By: rrouille <rrouille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 17:27:55 by rrouille          #+#    #+#              #
-#    Updated: 2022/11/19 14:36:01 by rrouille         ###   ########.fr        #
+#    Updated: 2022/11/20 14:25:31 by rrouille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ HDRDIR		= ../includes
 # Files
 SRCS		= ${shell find ${SRCDIR} -name '*.c'}
 OBJS		= ${SRCS:${SRCDIR}%.c=${OBJDIR}%.o}
-NAME		= libft.a
+NAME		= mylib.a
 
 # Compilation
 CC			= gcc

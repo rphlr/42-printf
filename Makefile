@@ -6,7 +6,7 @@
 #    By: rrouille <rrouille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 17:27:55 by rrouille          #+#    #+#              #
-#    Updated: 2022/11/19 18:46:57 by rrouille         ###   ########.fr        #
+#    Updated: 2022/11/20 14:25:11 by rrouille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -124,11 +124,11 @@ clean:
 
 fclean:		clean
 			@${RM} -f ${NAME}
-			@${RM} -f ${LIBDIR}/libft.a
-			@echo "${CYAN}ft_printf executable files cleaned!"
-			@echo "${CYAN}libft executable files cleaned!${DEFCOLOR}"
+			@${RM} -f ${LIBDIR}/mylib.a
+			@echo "${CYAN}printf executable files cleaned!"
+			@echo "${CYAN}Library executable files cleaned !${DEFCOLOR}"
 
 re:			fclean all
-			@echo "${GREEN}Cleaned and rebuilt everything for ft_printf!${DEFCOLOR}"
+			@echo "${GREEN}Cleaned and rebuilt everything !${DEFCOLOR}"
 
 .PHONY:		all clean fclean re norm
