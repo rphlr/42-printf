@@ -52,7 +52,7 @@ Or
 ```shell
 $ make mt
 ```
-	mt for More Test.
+> 💡 mt for More Test.
 
 To clean, run :
 
