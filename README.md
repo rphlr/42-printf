@@ -69,4 +69,18 @@ $ make fclean
 	<img src="https://raw.githubusercontent.com/rphlr/rphlr/main/imgs/separator.gif" alt="Separator" width ="200">
 </div>
 
+## My printf project evaluation
+
+<div align="center">
+
+|      Passed ?      |   Note  |
+|--------------------|:-------:|
+| :white_check_mark: | 100/100 |
+
+</div>
+
+<div align="center" style="text-align:center">
+	<img src="https://raw.githubusercontent.com/rphlr/rphlr/main/imgs/separator.gif" alt="Separator" width ="200">
+</div>
+
 This module was done by [rphlr](https://rphlr.ch).
