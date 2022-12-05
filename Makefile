@@ -6,7 +6,7 @@
 #    By: rrouille <rrouille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 17:27:55 by rrouille          #+#    #+#              #
-#    Updated: 2022/11/20 14:25:11 by rrouille         ###   ########.fr        #
+#    Updated: 2022/11/28 16:30:22 by rrouille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ LIBDIR		= lib
 SRCDIR		= srcs
 OBJDIR		= objs
 HDRDIR		= includes
+BONUSDIR	= ${SRCDIR}/bonus
 
 # Files
 SRCS		= ${shell find ${SRCDIR} ! -name "exec.c" -name '*.c'}
@@ -29,7 +30,7 @@ CFLAGS		= -Wall -Wextra -Werror
 # Usefuls commands
 RM			= rm -rf
 MV			= mv
-MKDIR		= mkdir
+MKDIR		= mkdir -p
 
 # Archive
 AR			= ar rcs
@@ -49,13 +50,14 @@ all:		${NAME}
 
 # First rule
 ${NAME}:	${OBJS}
-			@cp ${LIBDIR}/libft.a .
-			@mv libft.a ${NAME}
+			@cp ${LIBDIR}/mylib.a .
+			@mv mylib.a ${NAME}
 			@${AR} ${NAME} ${OBJS}
 			@echo "${GREEN}ft_printf compiled!${DEFCOLOR}"
 
 # Compilation rule
 ${OBJDIR}/%.o: ${SRCDIR}/%.c
+			@${MKDIR} ${BONUSDIR}
 			@make -C ${LIBDIR}
 			@${MKDIR} -p ${OBJDIR}
 			@echo "${YELLOW}Compiling: $< ${DEFCOLOR}"

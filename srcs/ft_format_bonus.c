@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_format_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrouille <rrouille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 15:35:04 by rrouille          #+#    #+#             */
-/*   Updated: 2022/11/28 16:28:50 by rrouille         ###   ########.fr       */
+/*   Created: 2021/04/21 08:52:18 by aperez-b          #+#    #+#             */
+/*   Updated: 2022/11/28 16:18:48 by rrouille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf_bonus.h"
 
-# include "mylib.h"
-# include <stdarg.h>
+t_format	ft_newformat(void)
+{
+	t_format	newformat;
 
-int	ft_printf(const char *str, ...);
-
-#endif
+	newformat.minus = 0;
+	newformat.plus = 0;
+	newformat.width = 0;
+	newformat.precision = 0;
+	newformat.specifier = 0;
+	newformat.zero = 0;
+	newformat.dot = 0;
+	newformat.space = 0;
+	newformat.sharp = 0;
+	newformat.neg_prec = 0;
+	return (newformat);
+}

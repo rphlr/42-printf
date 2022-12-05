@@ -2,11 +2,9 @@
 <p align="center">My printf code</p>
 
 <p align="center">
-	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/rphlr/42-printf?color=lightblue" />
-	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/rphlr/42-printf?color=critical" />
-	<img alt="Code language count" src="https://img.shields.io/github/languages/count/rphlr/42-printf?color=yellow" />
-	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/rphlr/42-printf?color=blue" />
-	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/rphlr/42-printf?color=green" />
+	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/rphlr/42-printf?color=green&logo=Codecademy&logoColor=green&style=flat-square">
+	<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/rphlr/42-printf?color=green&logo=github&logoColor=green&style=flat-square">
+	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/rphlr/42-printf?color=green&logo=github&logoColor=green&style=flat-square">
 </p>
 
 ---
@@ -41,7 +39,7 @@ $ make
 $ make test
 ```
 
-### If you are workin on a school mac, you can run this command to test further (according that [francinette](https://github.com/xicodomingues/francinette) is installed on the computer).
+### If you are working on a school mac, you can run this command to test further (according that [francinette](https://github.com/xicodomingues/francinette) is installed on the computer).
 
 ```shell
 $ make moretest
